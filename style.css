@@ -1,0 +1,146 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: #f1f5f9; /* slate-100 */
+}
+
+.font-teko { font-family: 'Teko', sans-serif; }
+
+/* HEADER STYLING */
+.nav-links a { position: relative; color: white; font-weight: 600; transition: color 0.3s; }
+.nav-links a::after { content: ''; position: absolute; width: 100%; height: 2px; background: #fbbf24; bottom: -5px; left: 0; transform: scaleX(0); transform-origin: bottom right; transition: transform 0.3s ease-out; }
+.nav-links a:hover { color: #fcd34d; }
+.nav-links a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+/* HERO SECTION PREP */
+.hero { background-color: #111827; }
+.hero-bg { position: absolute; inset: 0; background-image: url('https://i.imgur.com/7E4gG5A.jpg'); background-size: cover; background-position: center; z-index: 0; opacity: 0.2; }
+.hero-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%); z-index: 1; }
+.hero-title, .hero-subtitle { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+.hero-p, .hero-cta-wrapper { opacity: 0; }
+.hero-title .char, .hero-subtitle .char { transform: translateY(115%); transition: transform .5s; }
+
+.hero-cta { display: inline-block; background-color: #fbbf24; color: #111827; font-weight: bold; padding: 1rem 2.5rem; border-radius: 0.5rem; font-size: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.3s ease-in-out; }
+.hero-cta:hover { background-color: #fcd34d; transform: scale(1.05); box-shadow: 0 10px 20px rgba(252, 211, 77, 0.2); }
+
+/* SECTION TITLE PREP */
+.section-title { opacity: 0; transform: translateY(30px); }
+
+/* VEHICLE CARD 3D TILT PREP */
+.vehicle-card {
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform-style: preserve-3d; /* This is crucial for the 3D effect */
+    transform: perspective(1000px); /* And so is this */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card-content { padding: 2rem; position: relative; z-index: 1; }
+.card-shine {
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 60%);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.vehicle-card:hover .card-shine { opacity: 1; }
+
+/* SVG PATH PREP */
+#routePath {
+    stroke-dasharray: 2500; /* A large number, longer than the path */
+    stroke-dashoffset: 2500; /* Hides the line initially */
+}
+#hiaceIcon {
+    opacity: 0; /* Hide icon initially */
+}
+
+/* STATUS BADGE */
+.status-badge { transition: all 0.4s ease-in-out; font-weight: bold; padding: 0.5rem 1.5rem; border-radius: 9999px; font-size: 1.125rem; }
+@keyframes highlight-pulse { 0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); } 70% { box-shadow: 0 0 0 12px rgba(22, 163, 74, 0); } 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); } }
+.next-departure-highlight { animation: highlight-pulse 2s infinite; }
+
+/* BOOKING SECTION PREP */
+.booking-card { opacity: 0; transform: translateY(50px); }
+.booking-cta { display: inline-block; background-color: white; color: #1f2937; font-weight: bold; padding: 0.75rem 2rem; border-radius: 0.5rem; margin-top: 1.5rem; transition: transform 0.3s ease; }
+.booking-cta:hover { transform: scale(1.05); }
+.booking-link { display: inline-block; color: #fcd34d; font-weight: bold; margin-top: 1.5rem; transition: transform 0.3s ease; }
+.booking-link:hover { transform: translateX(5px); }
+
+/* CONTACT SECTION PREP */
+.contact-wrapper { opacity: 0; }
+.contact-line { transform: translateY(20px); opacity: 0; }
+/* ======================================= */
+/* ============== FOOTER STYLES ============== */
+/* ======================================= */
+
+.main-footer {
+    /* Initial state for animation */
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.footer-heading {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.5rem; /* 24px */
+    letter-spacing: 0.05em;
+    color: white;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2.5rem; /* 40px */
+    height: 3px;
+    background-color: #fbbf24; /* yellow-500 */
+}
+
+.footer-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.footer-link:hover {
+    color: white;
+}
+.footer-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: #fbbf24;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.footer-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.social-icon {
+    display: inline-block;
+    padding: 0.5rem;
+    border: 1px solid #4b5563; /* gray-600 */
+    border-radius: 50%;
+    color: #d1d5db; /* gray-300 */
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    background-color: #fbbf24;
+    color: #111827;
+    border-color: #fbbf24;
+    transform: scale(1.1) translateY(-3px);
+}
+
+/* Initial state for staggered column animation */
+.footer-column, .footer-bottom-bar {
+    opacity: 0;
+    transform: translateY(30px);
+}

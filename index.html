@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mati G | Moeez ki Gurya - Live Transport</title>
+    <meta name="description" content="Live timings for the Mati G transport service. Daily routes and private hire, treated with care. Moeez ki Gurya.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+
+    <header class="fixed top-0 left-0 w-full z-50 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-white tracking-wider font-teko">Mati G</h1>
+            <nav class="hidden md:flex space-x-8 nav-links">
+                <a href="#schedule">Schedule</a>
+                <a href="#booking">Private Booking</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero min-h-screen text-white flex items-center justify-center relative overflow-hidden">
+            <div class="hero-bg"></div>
+            <div class="hero-vignette"></div>
+            <div class="text-center z-20 p-5">
+                <h2 class="hero-title">Moeez ki Gurya</h2>
+                <h3 class="hero-subtitle">Your Cherished Ride, On Time.</h3>
+                <p class="hero-p">Experience a journey treated with care. Live daily routes and private hire, always at your service.</p>
+                <div class="hero-cta-wrapper">
+                    <a href="#schedule" class="hero-cta">View Live Timings</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIVE SCHEDULE HUB SECTION -->
+        <section id="schedule" class="py-20 md:py-24 relative overflow-hidden">
+            <!-- THE SVG ROUTE MAP -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full z-0">
+                <svg width="100%" height="100%" viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid slice">
+                    <path id="routePath" d="M 100,50 C 400,150 600,0 900,100 L 900,700 C 600,600 400,750 100,650 Z" stroke="#e5e7eb" stroke-width="4" fill="none"/>
+                    <image id="hiaceIcon" href="https://i.postimg.cc/prpyJc3p/hiace-top-down-removebg-preview.png" x="-50" y="-50" height="100" width="100"/>
+                </svg>
+            </div>
+
+            <div class="container mx-auto text-center px-6 relative z-10">
+                <h2 class="section-title">Live Route Status</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-16">
+                    <div class="vehicle-card bg-white">
+                        <div class="card-content">
+                            <div class="card-shine"></div>
+                            <h3 class="text-3xl font-bold font-teko tracking-wide">HIACE EXPRESS</h3>
+                            <p class="text-gray-500 font-semibold mt-1">Saddar Ada → Clifton Market</p>
+                            <div class="my-6"><img src="https://i.postimg.cc/QdYcm8Y4/Pngtree-toyota-hiace-van-car-7951336.png" class="h-48 mx-auto object-contain"></div>
+                            <div class="text-2xl font-bold text-gray-800">Departs Daily at <span class="text-blue-600">8:00 AM</span></div>
+                            <div class="mt-4 flex-grow flex items-end justify-center">
+                                <div id="hiace-status" class="status-badge">Checking Status...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vehicle-card bg-white">
+                         <div class="card-content">
+                            <div class="card-shine"></div>
+                            <h3 class="text-3xl font-bold font-teko tracking-wide">RAVI HOPPER</h3>
+                            <p class="text-gray-500 font-semibold mt-1">Local Town Circuit</p>
+                            <div class="my-6"><img src="https://i.postimg.cc/k47jVpq3/suzuki-ravi-removebg-preview.png" class="h-48 mx-auto object-contain"></div>
+                            <div class="text-xl font-bold text-gray-800">Multiple Departures:</div>
+                            <div id="ravi-timings" class="grid grid-cols-2 gap-x-4 gap-y-2 mt-4 text-lg"></div>
+                            <div class="mt-4 flex-grow flex items-end justify-center">
+                                <div class="bg-gray-100 p-4 rounded-lg w-full">
+                                    <span class="font-bold text-gray-600">NEXT DEPARTURE:</span>
+                                    <span id="ravi-next" class="text-xl font-bold text-green-600 ml-2">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- BOOKING SECTION -->
+        <section id="booking" class="py-20 md:py-24 bg-gray-800 text-white overflow-hidden">
+            <div class="container mx-auto px-6">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="booking-card private-booking">
+                        <h3 class="text-3xl font-bold text-yellow-400 font-teko tracking-wide">NEED A PRIVATE RIDE?</h3>
+                        <p class="mt-4 text-lg text-gray-300">Book any of our vehicles for your personal trips, family events, or business needs.</p>
+                        <a href="#contact" class="booking-cta">Inquire Now</a>
+                    </div>
+                     <div class="booking-card daily-route bg-gray-700 p-8 rounded-lg">
+                        <h3 class="text-3xl font-bold font-teko tracking-wide">RIDE THE DAILY ROUTE</h3>
+                        <p class="mt-4 text-lg text-gray-300">Our daily routes are the most affordable and reliable way to get around the city.</p>
+                        <a href="#schedule" class="booking-link">Check Schedule →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20">
+             <div class="container mx-auto text-center px-6 contact-wrapper">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="mt-8 text-3xl font-bold text-gray-800">
+                    <p class="contact-line">Call for Booking: <span class="text-blue-600">0314405846</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- STRONG FOOTER -->
+    <footer class="main-footer bg-gray-900 text-gray-300 pt-20 pb-8 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <div class="footer-column">
+                    <h3 class="text-2xl font-teko font-semibold tracking-wider text-white">Mati G</h3>
+                    <p class="mt-4 text-gray-400">Moeez ki Gurya. A service built on care, trust, and punctuality. Reliability in every mile.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="#schedule" class="footer-link">Live Schedule</a></li>
+                        <li><a href="#booking" class="footer-link">Private Booking</a></li>
+                        <li><a href="#contact" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li class="flex items-center">
+                            <span class="font-semibold text-yellow-400 mr-2">Call:</span> [Your Phone Number]
+                        </li>
+                        <li class="flex items-start">
+                             <span class="font-semibold text-yellow-400 mr-2 mt-1">Ada:</span> <span>[Your Ada/Stand Address Here]</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Follow Us</h4>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="social-icon" aria-label="Facebook"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg></a>
+                        <a href="#" class="social-icon" aria-label="Whatsapp"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.451-4.437-9.885-9.888-9.885-5.452 0-9.887 4.434-9.889 9.885.002 2.024.603 3.965 1.697 5.661l-1.155 4.224 4.252-1.117z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar border-t border-gray-700 mt-16 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Mati G | Moeez ki Gurya. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="script.js"></script>
+</body>
+</html>
